@@ -58,9 +58,10 @@ public class DemoController {
 		logger.info("Path Variable Received with : {}",id);
 	}
 	
-	@PostMapping("/requestBody")
-	public void requestParamMethod(@RequestBody Demo demoObj) {
+	@GetMapping("/requestBody")
+	public Demo requestParamMethod(@RequestBody Demo demoObj) {
 		logger.info("Request Param Received with : {}",demoObj.getName());
+		return demoObj;
 	}
 	
 }
