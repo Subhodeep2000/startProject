@@ -61,11 +61,11 @@ public class BookController {
 
     @PatchMapping("/updateBookDetails/{bookId}")
     public Book updateBookDetails(@RequestBody Book book,@PathVariable("bookId") int bookId) {
-        Book prevBookData = bookHashMap.get(id);
+        Book prevBookData = bookHashMap.get(bookId);
         if(book.getName() != null) prevBookData.setName(book.getName());
         if(book.getAuthor() != null) prevBookData.setAuthor(book.getAuthor());
         if(book.getCost() != 0) prevBookData.setCost(book.getCost());
-        bookHashMap.put(id, prevBookData);
+        bookHashMap.put(bookId, prevBookData);
         return bookHashMap.get(book.getId());
     }
 }

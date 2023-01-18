@@ -1,5 +1,6 @@
 package com.example.startProject.controller;
 
+import com.example.startProject.config.CustomConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.startProject.model.Demo;
 import com.example.startProject.service.PaymentService;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/v1")
@@ -26,6 +28,12 @@ public class DemoController {
 	
 	@Autowired
 	PaymentService paymentService;
+
+	@Autowired
+	CustomConfig customConfig;
+
+//	@Autowired
+//	RestTemplate restTemplate;
 	
 	@GetMapping("/demo")
 	public Demo getDemo() {
@@ -63,5 +71,12 @@ public class DemoController {
 		logger.info("Request Body Received with : {}",demoObj.getName());
 		return demoObj;
 	}
-	
+
+	@GetMapping("/getTemplate")
+	public void getTemplate(){
+		logger.info("In DemoController : {}",customConfig.getTemplate());
+	}
+
+//	In DemoController : org.springframework.web.client.RestTemplate@763cf5b9
+
 }
