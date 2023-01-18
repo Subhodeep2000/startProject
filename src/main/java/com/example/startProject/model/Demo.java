@@ -5,14 +5,16 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 
 @NoArgsConstructor
 @Component
 @Data
-public class Demo {
+public class Demo implements Serializable {
 	
 	private int id;
 	private String name;
-	private int phone;
+	private String phone;
 	
 }

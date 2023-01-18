@@ -60,7 +60,7 @@ public class DemoController {
 	
 	@GetMapping("/requestBody")
 	public Demo requestParamMethod(@RequestBody Demo demoObj) {
-		logger.info("Request Param Received with : {}",demoObj.getName());
+		logger.info("Request Body Received with : {}",demoObj.getName());
 		return demoObj;
 	}
 	
